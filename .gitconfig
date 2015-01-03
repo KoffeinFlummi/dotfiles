@@ -1,0 +1,9 @@
+[credential]
+	helper = /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
+[user]
+	name = KoffeinFlummi
+	email = koffeinflummi@gmail.com
+[core]
+	editor = vim
+[alias]
+	lg = log --format=\"%Cgreen%ad%Creset %C(cyan)%<(20)%an%Creset %C(auto)%h%Creset%C(auto)%d%Creset %s\" --date=short
