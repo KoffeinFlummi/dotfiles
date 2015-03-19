@@ -1,4 +1,8 @@
 set encoding=utf-8
+set nocompatible
+
+call pathogen#infect()
+call pathogen#helptags()
 
 " Style
 "set background=dark
@@ -39,3 +43,5 @@ set incsearch
 map <F7> :tabp<CR>
 map <F8> :tabn<CR>
 nnoremap <CR> :let @/ = ""<CR>:<BACKSPACE><CR>
+nnoremap <F5> :GundoToggle<CR>
+nnoremap <F6> :NERDTreeToggle<CR>
