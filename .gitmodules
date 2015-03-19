@@ -22,3 +22,9 @@
 [submodule ".vim/bundle/nerdcommenter"]
 	path = .vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter
+[submodule ".vim/bundle/gruvbox"]
+	path = .vim/bundle/gruvbox
+	url = https://github.com/morhetz/gruvbox
+[submodule ".vim/bundle/badwolf"]
+	path = .vim/bundle/badwolf
+	url = https://github.com/sjl/badwolf
