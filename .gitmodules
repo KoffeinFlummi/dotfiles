@@ -1,0 +1,33 @@
+[submodule ".vim/bundle/fugitive"]
+	path = .vim/bundle/fugitive
+	url = http://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/airline"]
+	path = .vim/bundle/airline
+	url = http://github.com/bling/vim-airline
+[submodule ".vim/bundle/gundo"]
+	path = .vim/bundle/gundo
+	url = http://github.com/sjl/gundo.vim
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule ".vim/bundle/sqf"]
+	path = .vim/bundle/sqf
+	url = https://github.com/KoffeinFlummi/vim-sqf
+[submodule ".vim/bundle/supertab"]
+	path = .vim/bundle/supertab
+	url = https://github.com/ervandew/supertab
+[submodule ".vim/bundle/gitgutter"]
+	path = .vim/bundle/gitgutter
+	url = git://github.com/airblade/vim-gitgutter
+[submodule ".vim/bundle/nerdcommenter"]
+	path = .vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter
+[submodule ".vim/bundle/gruvbox"]
+	path = .vim/bundle/gruvbox
+	url = https://github.com/morhetz/gruvbox
+[submodule ".vim/bundle/badwolf"]
+	path = .vim/bundle/badwolf
+	url = https://github.com/sjl/badwolf
+[submodule ".vim/bundle/eunuch"]
+	path = .vim/bundle/eunuch
+	url = https://github.com/tpope/vim-eunuch

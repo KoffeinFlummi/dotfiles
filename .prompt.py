@@ -115,7 +115,7 @@ def main():
 
   if "--right" in sys.argv:
     right = "{} {}".format(segment_git(), segment_path())
-    print(right.rjust(cols + correction), end="\r")
+    print(right.rjust(cols + correction - 1), end="\r")
 
   if "--left" in sys.argv:
     left = "{} {}".format(segment_whoami(), segment_prompt())
