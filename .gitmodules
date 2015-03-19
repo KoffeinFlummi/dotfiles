@@ -13,3 +13,12 @@
 [submodule ".vim/bundle/sqf"]
 	path = .vim/bundle/sqf
 	url = https://github.com/KoffeinFlummi/vim-sqf
+[submodule ".vim/bundle/supertab"]
+	path = .vim/bundle/supertab
+	url = https://github.com/ervandew/supertab
+[submodule ".vim/bundle/gitgutter"]
+	path = .vim/bundle/gitgutter
+	url = git://github.com/airblade/vim-gitgutter
+[submodule ".vim/bundle/nerdcommenter"]
+	path = .vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter
