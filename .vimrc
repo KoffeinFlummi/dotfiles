@@ -8,7 +8,8 @@ filetype plugin on
 
 " Style (color list: http://pln.jonas.me/xterm-colors)
 syntax on
-colorscheme badwolf
+set background=dark
+colorscheme gruvbox
 
 " Make background transparent
 highlight Normal ctermbg=None
