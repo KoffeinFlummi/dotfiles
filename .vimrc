@@ -55,7 +55,7 @@ set smartcase
 set pastetoggle=<F2>
 nnoremap <CR> :let @/ = ""<CR>:<BACKSPACE><CR>
 nnoremap <F5> :GundoToggle<CR>
-nnoremap <F6> :NERDTreeToggle<CR>
+nnoremap <F6> :NERDTreeFind<CR>
 nnoremap <F7> :tabp<CR>
 nnoremap <F8> :tabn<CR>
 
