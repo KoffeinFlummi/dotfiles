@@ -1,5 +1,3 @@
-[credential]
-	helper = /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
 [user]
 	name = KoffeinFlummi
 	email = koffeinflummi@gmail.com
