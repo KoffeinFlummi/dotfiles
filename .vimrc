@@ -40,6 +40,7 @@ set noswapfile
 
 " Navigation
 set mouse=a
+set scrolloff=2
 
 " Layout
 set number
