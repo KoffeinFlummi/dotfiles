@@ -65,6 +65,7 @@ let g:airline_left_sep = ""
 let g:airline_right_sep = ""
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline#extensions#tabline#show_buffers = 0
 let g:airline_theme = 'custom'
 let g:airline#themes#custom#palette = {}
 let s:N1 = [ '#005f00' , '#aeee00' , 22  , 154 ]
