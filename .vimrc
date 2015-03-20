@@ -59,6 +59,7 @@ nnoremap <F5> :GundoToggle<CR>
 nnoremap <F6> :NERDTreeFind<CR>
 nnoremap <F7> :tabp<CR>
 nnoremap <F8> :tabn<CR>
+vmap <C-C> "+y
 
 " Airline
 let g:airline_left_sep = ""
