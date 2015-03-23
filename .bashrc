@@ -22,11 +22,3 @@ function __prompt_command() {
   ~/.prompt.py --right
   PS1=$(~/.prompt.py --left)
 }
-
-vim(){
-  if [ $# -ne 0 ]; then
-    command vim $@
-  else
-    command vim ./
-  fi
-}
