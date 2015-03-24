@@ -52,6 +52,10 @@ set hlsearch
 set incsearch
 set smartcase
 
+" Open NERDTree on startup
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
 " Keybinds
 set pastetoggle=<F2>
 nnoremap <CR> :let @/ = ""<CR>:<BACKSPACE><CR>
@@ -61,13 +65,16 @@ nnoremap <F7> :tabp<CR>
 nnoremap <F8> :tabn<CR>
 nnoremap <Left> :cprev<CR>
 nnoremap <Right> :cnext<CR>
+vmap <C-C> "+y
 
 " Airline
 let g:airline_left_sep = ""
 let g:airline_right_sep = ""
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#show_buffers = 0
+
 let g:airline_theme = 'custom'
 let g:airline#themes#custom#palette = {}
 let s:N1 = [ '#005f00' , '#aeee00' , 22  , 154 ]
