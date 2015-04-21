@@ -22,6 +22,7 @@ set expandtab
 set tabstop=8
 set shiftwidth=4
 set softtabstop=4
+set autoindent
 
 " Code Folding
 set foldmethod=indent
@@ -41,6 +42,7 @@ set noswapfile
 " Navigation
 set mouse=a
 set scrolloff=2
+set backspace=indent,eol,start
 
 " Layout
 set number
@@ -65,6 +67,7 @@ nnoremap <F7> :tabp<CR>
 nnoremap <F8> :tabn<CR>
 nnoremap <Left> :cprev<CR>
 nnoremap <Right> :cnext<CR>
+nnoremap <Space> za
 vmap <C-C> "+y
 
 " Airline
