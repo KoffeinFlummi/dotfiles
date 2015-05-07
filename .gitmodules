@@ -31,12 +31,6 @@
 [submodule ".vim/bundle/eunuch"]
 	path = .vim/bundle/eunuch
 	url = https://github.com/tpope/vim-eunuch
-[submodule "bundle/python-mode"]
-	path = bundle/python-mode
-	url = https://github.com/klen/python-mode
-[submodule ".vim/bundle/python"]
-	path = .vim/bundle/python
-	url = https://github.com/klen/python-mode
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular
