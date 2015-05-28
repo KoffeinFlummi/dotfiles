@@ -6,13 +6,22 @@ import shutil
 import subprocess
 import re
 
-colors = {
-  "red": "\33[1;31m",
-  "green": "\33[1;32m",
-  "blue": "\33[1;36m",
-  "yellow": "\33[1;33m",
-  "reset": "\33[0m"
-}
+if "--left" in sys.argv:
+  colors = {
+    "red": "\\[\\e[1;31m\\]",
+    "green": "\\[\\e[1;32m\\]",
+    "blue": "\\[\\e[1;36m\\]",
+    "yellow": "\\[\\e[1;33m\\]",
+    "reset": "\\[\\e[0m\\]"
+  }
+else:
+  colors = {
+    "red": "\33[1;31m",
+    "green": "\33[1;32m",
+    "blue": "\33[1;36m",
+    "yellow": "\33[1;33m",
+    "reset": "\33[0m"
+  }
 correction = 0
 
 def get_terminal_size():
