@@ -18,7 +18,7 @@ fi
 
 export PROMPT_COMMAND=__prompt_command
 function __prompt_command() {
-  export ERR=$?
-  ~/.prompt.py --right
-  PS1=$(~/.prompt.py --left)
+    export ERR=$?
+    ~/.prompt.py --right
+    PS1=$(~/.prompt.py --left)
 }
