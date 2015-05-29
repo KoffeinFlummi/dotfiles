@@ -70,34 +70,38 @@ def segment_git():
     global colors, correction
 
     try:
-        branch = subprocess.check_output(["git", "name-rev", "--name-only", "HEAD"], stderr=subprocess.PIPE)
+        status = subprocess.check_output(["git", "status"], env={"LC_ALL": "en_US"}, stderr=subprocess.PIPE)
     except:
         return ""
 
+    status = str(status, "utf-8")[:-1]
+    lines = status.split("\n")
+    rev = lines[0].split(" ")[-1]
+
+    if "detached" in lines[0]:
+        gitseg = "[{}]".format(rev)
+    else:
+        gitseg = "({})".format(rev)
+
     correction = correction + 11
-    gitseg = "(" + str(branch, "utf-8")[:-1] + ")"
 
-    local = str(subprocess.check_output(["git", "rev-list", "origin..HEAD"]), "utf-8")
-    origin = str(subprocess.check_output(["git", "rev-list", "HEAD..origin"]), "utf-8")
-    local, origin = len(local.split("\n")), len(origin.split("\n"))
-    if local > 1:
-        gitseg = "{}^ ".format(local - 1) + gitseg
-    if origin > 1:
-        gitseg = "{}v ".format(origin - 1) + gitseg
+    local, origin = 0, 0
+    if "have diverged" in lines[1]:
+        local, origin = lines[2].split(" ")[2], lines[2].split(" ")[4]
+    elif "is behind" in lines[1]:
+        origin = lines[1].split(" ")[6]
+    elif "is ahead" in lines[1]:
+        local = lines[1].split(" ")[7]
 
-    porcelain = str(subprocess.check_output(["git", "status", "--porcelain", "--untracked-files"]), "utf-8")
-    new = len(list(filter(lambda x: x[:2] == "??", porcelain.split("\n"))))
-    if new > 0:
+    if int(local) > 0:
+        gitseg = "{}^ ".format(local) + gitseg
+    if int(origin) > 0:
+        gitseg = "{}v ".format(origin) + gitseg
+
+    if "Untracked" in status or "Changes not staged" in status:
         return colors["red"] + gitseg + colors["reset"]
 
-    diff = str(subprocess.check_output(["git", "diff", "--name-only"]), "utf-8")
-    changed = len(diff.split("\n"))
-    if changed > 1:
-        return colors["red"] + gitseg + colors["reset"]
-
-    diff = str(subprocess.check_output(["git", "diff", "--name-only", "--staged"]), "utf-8")
-    staged = len(diff.split("\n"))
-    if staged > 1:
+    if "Changes to be committed" in status:
         return colors["yellow"] + gitseg + colors["reset"]
 
     return colors["green"] + gitseg + colors["reset"]
