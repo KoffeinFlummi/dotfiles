@@ -134,5 +134,13 @@ def main():
         left = "{} {}".format(segment_whoami(), segment_prompt())
         print(left, end=" ")
 
+    if "--debug" in sys.argv:
+        import time
+        for f in ["get_terminal_size", "segment_whoami", "segment_prompt",
+                "segment_git", "segment_path"]:
+            t = time.time()
+            globals()[f]()
+            print("{:20} {}".format(f, time.time() - t))
+
 if __name__ == "__main__":
     main()
