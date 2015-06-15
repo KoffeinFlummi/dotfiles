@@ -76,6 +76,9 @@ def segment_git():
 
     status = str(status, "utf-8")[:-1]
     lines = status.split("\n")
+    for i, l in enumerate(lines):
+        if l[:2] == "# ":
+            lines[i] = l[2:]
     rev = lines[0].split(" ")[-1]
 
     if "detached" in lines[0]:
