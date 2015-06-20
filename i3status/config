@@ -18,6 +18,7 @@ general {
 order += "cpu_temperature 0"
 order += "cpu_usage"
 order += "wireless _first_"
+order += "ethernet _first_"
 order += "battery 0"
 order += "volume master"
 order += "tztime local"
@@ -32,7 +33,12 @@ cpu_usage {
 
 wireless _first_ {
     format_up = " (%quality at %essid) %ip"
-    format_down = " no connection"
+    format_down = " no connection"
+}
+
+ethernet _first_ {
+    format_up = " %ip"
+    format_down = " no connection"
 }
 
 battery 0 {
