@@ -10,7 +10,7 @@ URxvt.urgentOnBell: True
 URxvt.cursorBlink: True
 
 ! Extensions
-URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select
+URxvt.perl-ext-common: default,clipboard
 URxvt.urlLauncher: xdg-open
 URxvt.urlButton: 1
 URxvt.underlineURLs: True
@@ -19,9 +19,8 @@ URxvt.underlineURLs: True
 !URxvt.pasteCommand: xclip -o -selection clipboard
 
 ! Keybindings
-URxvt.keysym.Control-Shift-c: perl:clipboard:copy
-URxvt.keysym.Control-Shift-v: perl:clipboard:paste
-URxvt.keysym.Mod4-C-v: perl:clipboard:paste_escaped
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 
 ! Font
 URxvt.font:     xft:Fantasque Sans Mono-10,xft:FontAwesome-10
