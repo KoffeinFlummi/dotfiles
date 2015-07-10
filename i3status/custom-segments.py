@@ -42,6 +42,17 @@ def main():
 
     # Construct additional segments
     segments = []
+
+    try:
+        mpc = get("mpc").split("\n")
+        assert len(mpc) > 1
+        if "playing" in mpc[1]:
+            segments.append(" "+mpc[0])
+        else:
+            segments.append(" "+mpc[0])
+    except:
+        pass
+
     if "laptop" in get("hostname"):
         # Backlight
         backlight = math.floor(float(get("xbacklight -get")))
