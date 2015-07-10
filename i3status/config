@@ -12,7 +12,7 @@ general {
     color_good = "#b8bb26"
     color_degraded = "#928374"
     color_bad = "#fb4934"
-    interval = 5
+    interval = 1
 }
 
 order += "cpu_temperature 0"
