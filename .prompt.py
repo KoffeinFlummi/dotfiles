@@ -6,6 +6,8 @@ import shutil
 import subprocess
 import re
 
+import psutil
+
 if "--left" in sys.argv:
     colors = {
         "red": "\\[\\e[1;31m\\]",
@@ -28,6 +30,18 @@ def get_terminal_size():
     lines, cols = subprocess.check_output(["stty", "size"]).split()
     return int(cols), int(lines)
 
+def is_ssh():
+    if "SSH_TTY" in os.environ:
+        return True
+
+    proc = psutil.Process(os.getpid())
+    while proc is not None:
+        if "ssh" in proc.name():
+            return True
+        proc = proc.parent()
+
+    return False
+
 def segment_whoami():
     global colors
 
@@ -46,7 +60,7 @@ def segment_whoami():
         usercolor = colors["red"]
 
     hostcolor = colors["blue"]
-    if "SSH_TTY" in os.environ:
+    if is_ssh():
         hostcolor = colors["yellow"]
 
     return "[{}{}{}@{}{}{}]".format(
