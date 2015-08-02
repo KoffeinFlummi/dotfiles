@@ -56,11 +56,18 @@ def main():
     if "laptop" in get("hostname"):
         # Backlight
         backlight = math.floor(float(get("xbacklight -get")))
-        segments.append(" {:03}%".format(backlight))
+        segments.append(" {:02}%".format(backlight))
 
         # Kbdlight
         kbdlight = math.floor(float(get("kbdlight get")) / 255 * 100)
-        segments.append(" {:03}%".format(kbdlight))
+        segments.append(" {:02}%".format(kbdlight))
+
+    # Memory usage
+    meminfo = get("cat /proc/meminfo").split("\n")
+    total = int(meminfo[0].split()[1])
+    avail = int(meminfo[2].split()[1])
+    memusage = round((1 - avail / total) * 100)
+    segments.append(" {:02}%".format(memusage))
 
     # Insert additional segments
     output = original[:start]

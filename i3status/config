@@ -15,20 +15,20 @@ general {
     interval = 1
 }
 
-order += "cpu_temperature 0"
 order += "cpu_usage"
+order += "cpu_temperature 0"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery 0"
 order += "volume master"
 order += "tztime local"
 
-cpu_temperature 0 {
-    format = " %degrees°C"
-}
-
 cpu_usage {
     format = " %usage"
+}
+
+cpu_temperature 0 {
+    format = " %degrees°C"
 }
 
 wireless _first_ {
