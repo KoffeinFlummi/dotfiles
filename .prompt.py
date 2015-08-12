@@ -6,8 +6,6 @@ import shutil
 import subprocess
 import re
 
-import psutil
-
 if "--left" in sys.argv:
     colors = {
         "red": "\\[\\e[1;31m\\]",
@@ -31,6 +29,11 @@ def get_terminal_size():
     return int(cols), int(lines)
 
 def is_ssh():
+    try:
+        import psutil
+    except:
+        return "SSH_TTY" in os.environ
+
     if "SSH_TTY" in os.environ:
         return True
 
