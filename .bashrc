@@ -1,4 +1,5 @@
 export TERM=xterm-256color
+export EDITOR=vim
 
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
