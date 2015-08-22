@@ -189,7 +189,8 @@ bindsym XF86AudioNext         exec --no-startup-id mpc next && killall -SIGUSR1 
 
 # Gaps
 for_window [class="^.*"] border pixel 2
-gaps inner 9
+gaps inner 10
+gaps outer 5
 
 # Applets
 exec --no-startup-id nm-applet
