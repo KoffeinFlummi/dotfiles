@@ -37,10 +37,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id rofi -show run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+s exec --no-startup-id rofi -show ssh
 
 # change focus
 bindsym $mod+h focus left
@@ -49,9 +46,9 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 
 # move focused window
@@ -61,9 +58,9 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
@@ -74,11 +71,6 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
-#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -131,16 +123,16 @@ mode "resize" {
     # Pressing right will grow the window’s width.
     # Pressing up will shrink the window’s height.
     # Pressing down will grow the window’s height.
-    bindsym h resize shrink width 3 px or 3 ppt
-    bindsym j resize grow height 3 px or 3 ppt
+    bindsym h resize shrink width  3 px or 3 ppt
+    bindsym j resize grow   height 3 px or 3 ppt
     bindsym k resize shrink height 3 px or 3 ppt
-    bindsym l resize grow width 3 px or 3 ppt
+    bindsym l resize grow   width  3 px or 3 ppt
 
     # same bindings, but for the arrow keys
-    bindsym Left resize shrink width 3 px or 3 ppt
-    bindsym Down resize grow height 3 px or 3 ppt
-    bindsym Up resize shrink height 3 px or 3 ppt
-    bindsym Right resize grow width 3 px or 3 ppt
+    bindsym Left  resize shrink width  3 px or 3 ppt
+    bindsym Down  resize grow   height 3 px or 3 ppt
+    bindsym Up    resize shrink height 3 px or 3 ppt
+    bindsym Right resize grow   width  3 px or 3 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -158,12 +150,13 @@ bar {
     colors {
         background #282828
         statusline #ebdbb2
-        separator #458588
+        separator  #458588
 
-        focused_workspace  #458588 #458588 #ebdbb2
+        #                  border  backgr. text
+        focused_workspace  #83a598 #458588 #ebdbb2
         active_workspace   #323232 #5f676a #ebdbb2
         inactive_workspace #323232 #323232 #458588
-        urgent_workspace   #333333 #900000 #ffffff
+        urgent_workspace   #cc241d #fb4934 #ffffff
     }
 }
 
@@ -171,21 +164,21 @@ bar {
 client.focused          #458588 #458588 #ebdbb2 #83a598
 client.unfocused        #323232 #323232 #ebdbb2 #323232
 client.focused_inactive #323232 #333333 #ebdbb2 #323232
-client.urgent           #383a3b #383a3b #ee0000 #383a3b
+client.urgent           #cc241d #383a3b #fb4934 #383a3b
 
 # Function Keys
-bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5 && killall -SIGUSR1 i3status
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 && killall -SIGUSR1 i3status
-bindsym XF86KbdBrightnessUp   exec --no-startup-id kbdlight up 5 && killall -SIGUSR1 i3status
-bindsym XF86KbdBrightnessDown exec --no-startup-id kbdlight down 5 && killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume  exec --no-startup-id amixer -q set Master 5%+ && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume  exec --no-startup-id amixer -q set Master 5%- && killall -SIGUSR1 i3status
+bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5           && killall -SIGUSR1 i3status
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5           && killall -SIGUSR1 i3status
+bindsym XF86KbdBrightnessUp   exec --no-startup-id kbdlight up 5               && killall -SIGUSR1 i3status
+bindsym XF86KbdBrightnessDown exec --no-startup-id kbdlight down 5             && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume  exec --no-startup-id amixer -q set Master 5%+    && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume  exec --no-startup-id amixer -q set Master 5%-    && killall -SIGUSR1 i3status
 bindsym XF86AudioMute         exec --no-startup-id amixer -q set Master toggle && killall -SIGUSR1 i3status
-bindsym XF86AudioStop         exec --no-startup-id mpc stop && killall -SIGUSR1 i3status
-bindsym XF86AudioPause        exec --no-startup-id mpc toggle && killall -SIGUSR1 i3status
-bindsym XF86AudioPlay         exec --no-startup-id mpc toggle && killall -SIGUSR1 i3status
-bindsym XF86AudioPrev         exec --no-startup-id mpc prev && killall -SIGUSR1 i3status
-bindsym XF86AudioNext         exec --no-startup-id mpc next && killall -SIGUSR1 i3status
+bindsym XF86AudioStop         exec --no-startup-id mpc stop                    && killall -SIGUSR1 i3status
+bindsym XF86AudioPause        exec --no-startup-id mpc toggle                  && killall -SIGUSR1 i3status
+bindsym XF86AudioPlay         exec --no-startup-id mpc toggle                  && killall -SIGUSR1 i3status
+bindsym XF86AudioPrev         exec --no-startup-id mpc prev                    && killall -SIGUSR1 i3status
+bindsym XF86AudioNext         exec --no-startup-id mpc next                    && killall -SIGUSR1 i3status
 
 # Gaps
 for_window [class="^.*"] border pixel 2
@@ -201,14 +194,17 @@ exec --no-startup-id feh --bg-fill ~/Pictures/current_wallpaper
 bindsym $mod+Ctrl+l exec --no-startup-id ~/.config/i3/lock.sh
 
 # Puush keybindings
-bindsym Ctrl+Shift+2    exec --no-startup-id puush -c window
-bindsym Ctrl+Shift+3    exec --no-startup-id puush -c desktop
-bindsym Ctrl+Shift+4    exec --no-startup-id puush -c area
+bindsym Ctrl+Shift+2 exec --no-startup-id puush -c window
+bindsym Ctrl+Shift+3 exec --no-startup-id puush -c desktop
+bindsym Ctrl+Shift+4 exec --no-startup-id puush -c area
 
 # Window Settings
-for_window [window_role="About"] floating enable
-for_window [window_role="Preferences"] floating enable
-for_window [window_role="pop-up"] floating enable
-for_window [title="Steam - Update News"] floating enable
-for_window [title="Friends" class="Steam"] floating enable
-for_window [title="Chat" class="Steam"] floating enable
+for_window [window_role="About"]                floating enable
+for_window [window_role="Preferences"]          floating enable
+for_window [window_role="pop-up"]               floating enable
+for_window [title="Steam - Update News"]        floating enable
+for_window [title="Friends" class="Steam"]      floating enable
+for_window [title="Music Player" class="Steam"] floating enable
+for_window [title="Chat" class="Steam"]         floating enable
+for_window [title="wlc-x11" class="wlc-x11"]    floating enable
+for_window [title="Hearthstone"]                floating enable
