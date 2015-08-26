@@ -20,6 +20,11 @@ set timeout      = 60
 set sort         = "threads"
 
 bind editor <space> noop
+bind pager  H       display-toggle-weed
+bind pager  h       previous-undeleted
+bind pager  k       previous-line
+bind pager  j       next-line
+bind pager  l       next-undeleted
 bind index  gg      first-entry
 bind index  G       last-entry
 
