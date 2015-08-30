@@ -13,6 +13,8 @@ alias ll='ls -alF --block-size=M --color=auto'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias sysinfo='echo "" && screenfetch && echo -e "\n" && dfc -p /dev && echo "" && colors'
+
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
