@@ -6,10 +6,11 @@ call pathogen#infect()
 call pathogen#helptags()
 filetype plugin on
 
-" Style (color list: http://pln.jonas.me/xterm-colors)
+" Style (color list: http://jonasjacek.github.io/colors/)
 syntax on
 set background=dark
 colorscheme gruvbox
+set cursorline
 
 " Make background transparent
 highlight Normal ctermbg=None
@@ -23,6 +24,7 @@ set tabstop=8
 set shiftwidth=4
 set softtabstop=4
 set autoindent
+autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
 " Code Folding
 set foldmethod=indent
@@ -54,10 +56,11 @@ set hlsearch
 set incsearch
 set smartcase
 
-" Open NERDTree on startup
+" NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd BufEnter * ColorHighlight
+let NERDTreeIgnore = ["\.pyc$", "\.o$"]
 
 " Keybinds
 set pastetoggle=<F2>
