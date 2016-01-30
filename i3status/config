@@ -39,7 +39,7 @@ wireless _first_ {
 
 ethernet _first_ {
     format_up = " %ip"
-    format_down = " no connection"
+    format_down = " no connection"
 }
 
 path_exists vpn {
