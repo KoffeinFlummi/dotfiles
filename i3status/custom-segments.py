@@ -57,7 +57,7 @@ def main():
     if laptop:
         # Backlight
         backlight = math.floor(float(get("xbacklight -get")))
-        segments.append(" {:02}%".format(backlight))
+        segments.append(" {:02}%".format(backlight))
 
         # Kbdlight
         kbdlight = math.floor(float(get("kbdlight get")) / 255 * 100)

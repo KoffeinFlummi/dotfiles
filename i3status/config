@@ -38,8 +38,8 @@ wireless _first_ {
 }
 
 ethernet _first_ {
-    format_up = " %ip"
-    format_down = " no connection"
+    format_up = " %ip"
+    format_down = " no connection"
 }
 
 path_exists vpn {
@@ -49,7 +49,10 @@ path_exists vpn {
 }
 
 battery 0 {
-    format = " %percentage (%remaining)"
+    format = "%status %percentage (%remaining)"
+    status_chr = ""
+    status_bat = ""
+    status_full = ""
     hide_seconds = true
     integer_battery_capacity = true
 }
