@@ -6,7 +6,7 @@ call pathogen#infect()
 call pathogen#helptags()
 filetype plugin on
 
-" Style (color list: http://pln.jonas.me/xterm-colors)
+" Style (color list: http://jonasjacek.github.io/colors/)
 syntax on
 set background=dark
 colorscheme gruvbox

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 scrot -q 1 /tmp/screenshot.jpg
-if [[ $(hostname) == *"laptop"* ]]
+if [[ $(hostname) == "alfheim" ]]
 then
     convert /tmp/screenshot.jpg -resize 77x45 -scale 1440x900 /tmp/screenshotblur.png
 else

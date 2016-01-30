@@ -25,6 +25,7 @@ def main():
     encoding = locale.getpreferredencoding()
     argvb = [bytes(arg, encoding) for arg in argv]
     argv = [str(arg, "utf-8") for arg in argvb]
+    laptop = "alfheim" in get("hostname")
 
     # Find insertion point for new segments
     original = " ".join(argv[1:])
@@ -35,7 +36,7 @@ def main():
         return original
 
     # Remove ethernet segment on laptop, and battery segment on PC
-    if "laptop" in get("hostname"):
+    if laptop:
         original = re.sub(r",\{\"name\":\"ethernet\".*?\}", "", original)
     else:
         original = re.sub(r",\{\"name\":\"battery\".*?\}", "", original)
@@ -53,7 +54,7 @@ def main():
     except:
         pass
 
-    if "laptop" in get("hostname"):
+    if laptop:
         # Backlight
         backlight = math.floor(float(get("xbacklight -get")))
         segments.append(" {:02}%".format(backlight))
