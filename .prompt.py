@@ -31,19 +31,19 @@ def get_terminal_size():
 def is_ssh():
     try:
         import psutil
+
+        if "SSH_TTY" in os.environ:
+            return True
+
+        proc = psutil.Process(os.getpid())
+        while proc is not None:
+            if "ssh" in proc.name():
+                return True
+            proc = proc.parent()
+
+        return False
     except:
         return "SSH_TTY" in os.environ
-
-    if "SSH_TTY" in os.environ:
-        return True
-
-    proc = psutil.Process(os.getpid())
-    while proc is not None:
-        if "ssh" in proc.name():
-            return True
-        proc = proc.parent()
-
-    return False
 
 def segment_whoami():
     global colors
