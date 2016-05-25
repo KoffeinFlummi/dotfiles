@@ -163,18 +163,18 @@ bar {
     colors {
         background #282828
         statusline #ebdbb2
-        separator  #458588
+        separator  #ff9800
 
         #                  border  backgr. text
-        focused_workspace  #83a598 #458588 #ebdbb2
-        active_workspace   #323232 #5f676a #ebdbb2
-        inactive_workspace #323232 #323232 #458588
+        focused_workspace  #ffb74d #ff9800 #323232
+        active_workspace   #ff9800 #5f676a #ff9800
+        inactive_workspace #323232 #323232 #ff9800
         urgent_workspace   #cc241d #fb4934 #ffffff
     }
 }
 
 # class                 border  backgr. text    indicator
-client.focused          #458588 #458588 #ebdbb2 #83a598
+client.focused          #ff9800 #ff9800 #323232 #ffb74d
 client.unfocused        #323232 #323232 #ebdbb2 #323232
 client.focused_inactive #323232 #333333 #ebdbb2 #323232
 client.urgent           #cc241d #383a3b #fb4934 #383a3b
@@ -194,16 +194,11 @@ bindsym XF86AudioPrev         exec --no-startup-id mpc prev                    &
 bindsym XF86AudioNext         exec --no-startup-id mpc next                    && killall -SIGUSR1 i3status
 
 # Borders & Gaps
-for_window [class="^.*"] border pixel 2
-for_window [window_role="browser"] border pixel 0
+new_window pixel 2
 gaps inner 10
 gaps outer 5
-workspace $ws1 gaps inner 0
-workspace $ws1 gaps outer 0
-workspace $ws2 gaps inner 0
-workspace $ws2 gaps outer 0
-workspace $ws3 gaps inner 0
-workspace $ws3 gaps outer 0
+smart_gaps on
+smart_borders on
 
 # Applets
 exec --no-startup-id nm-applet
