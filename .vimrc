@@ -62,7 +62,7 @@ set smartcase
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd BufEnter * ColorHighlight
-let NERDTreeIgnore = ["\.pyc$", "\.o$"]
+let NERDTreeIgnore = ["\.pyc$", "\.o$", "\.class$", "\.rcg$", "\.rcl$"]
 
 " Keybinds
 set pastetoggle=<F2>
