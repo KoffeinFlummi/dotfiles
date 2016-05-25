@@ -60,7 +60,7 @@ battery 0 {
 volume master {
     format = " %volume"
     format_muted = " %volume"
-    device = "default"
+    device = "dmixer"
     mixer = "Master"
     mixer_idx = 0
 }
