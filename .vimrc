@@ -50,6 +50,8 @@ set backspace=indent,eol,start
 set number
 set laststatus=2
 set equalalways
+let g:gitgutter_max_signs = 3000
+set tabpagemax=100
 
 " Searching
 set hlsearch
