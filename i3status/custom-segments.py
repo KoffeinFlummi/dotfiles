@@ -19,6 +19,13 @@ def get(cmd):
         return ""
 
 
+def get_file(path):
+    with open(path) as f:
+        s = f.read()
+
+    return float(s.strip())
+
+
 def main():
     # Unfuck unicode symbols in argv
     argv = sys.argv
@@ -56,8 +63,8 @@ def main():
 
     if laptop:
         # Backlight
-        backlight = math.floor(float(get("xbacklight -get")))
-        segments.append(" {:02}%".format(backlight))
+        backlight = get_file("/sys/class/backlight/mba6x_backlight/actual_brightness") / 2.5
+        segments.append(" {:02}%".format(int(backlight)))
 
         # Kbdlight
         kbdlight = math.floor(float(get("kbdlight get")) / 255 * 100)
