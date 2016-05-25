@@ -9,11 +9,12 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-alias ll='ls -alF --block-size=M --color=auto'
+alias ll='ls -alF --block-size=M --color=auto --group-directories-first'
 alias la='ls -A'
 alias l='ls -CF'
 
 alias sysinfo='echo "" && screenfetch && echo -e "\n" && dfc -p /dev && echo "" && colors'
+alias weather='curl http://wttr.in/Darmstadt'
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
