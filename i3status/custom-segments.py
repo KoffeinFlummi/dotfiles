@@ -7,6 +7,8 @@ import locale
 import re
 import subprocess as sp
 
+import requests
+
 
 def get(cmd):
     out = sp.check_output(cmd.split())
@@ -40,6 +42,7 @@ def main():
         original = re.sub(r",\{\"name\":\"ethernet\".*?\}", "", original)
     else:
         original = re.sub(r",\{\"name\":\"battery\".*?\}", "", original)
+        original = re.sub(r",\{\"name\":\"wireless\".*?\}", "", original)
 
     # Construct additional segments
     segments = []
@@ -53,6 +56,10 @@ def main():
             segments.append(" "+mpc[0])
     except:
         pass
+
+    # Bitcoin price
+    r = requests.get("https://api.bitcoinaverage.com/ticker/global/EUR/")
+    segments.append(" "+str(r.json()["last"]))
 
     if laptop:
         # Backlight
