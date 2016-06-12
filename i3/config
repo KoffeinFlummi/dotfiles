@@ -157,41 +157,43 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command ~/.config/i3status/custom-bar.sh
+    status_command i3blocks
     position top
+    tray_output primary
+    height 23
 
     colors {
         background #282828
         statusline #ebdbb2
-        separator  #ff9800
+        separator  #00000000
 
         #                  border  backgr. text
-        focused_workspace  #ffb74d #ff9800 #323232
-        active_workspace   #ff9800 #5f676a #ff9800
-        inactive_workspace #323232 #323232 #ff9800
+        focused_workspace  #fabd2f #fabd2f #323232
+        active_workspace   #d79921 #5f676a #d79921
+        inactive_workspace #323232 #323232 #d79921
         urgent_workspace   #cc241d #fb4934 #ffffff
     }
 }
 
 # class                 border  backgr. text    indicator
-client.focused          #ff9800 #ff9800 #323232 #ffb74d
+client.focused          #d79921 #d79921 #323232 #fabd2f
 client.unfocused        #323232 #323232 #ebdbb2 #323232
 client.focused_inactive #323232 #333333 #ebdbb2 #323232
 client.urgent           #cc241d #383a3b #fb4934 #383a3b
 
 # Function Keys
-bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5                       && killall -SIGUSR1 i3status
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5                       && killall -SIGUSR1 i3status
-bindsym XF86KbdBrightnessUp   exec --no-startup-id kbdlight up 5                           && killall -SIGUSR1 i3status
-bindsym XF86KbdBrightnessDown exec --no-startup-id kbdlight down 5                         && killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume  exec --no-startup-id amixer -q set Master 5%+                && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume  exec --no-startup-id amixer -q set Master 5%-                && killall -SIGUSR1 i3status
-bindsym XF86AudioMute         exec --no-startup-id amixer -q set Master toggle             && killall -SIGUSR1 i3status
-bindsym XF86AudioStop         exec --no-startup-id mpc stop                                && killall -SIGUSR1 i3status
-bindsym XF86AudioPause        exec --no-startup-id mpc toggle                              && killall -SIGUSR1 i3status
-bindsym XF86AudioPlay         exec --no-startup-id mpc toggle                              && killall -SIGUSR1 i3status
-bindsym XF86AudioPrev         exec --no-startup-id mpc prev                                && killall -SIGUSR1 i3status
-bindsym XF86AudioNext         exec --no-startup-id mpc next                                && killall -SIGUSR1 i3status
+bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5                       && pkill -RTMIN+1 i3blocks
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5                       && pkill -RTMIN+1 i3blocks
+bindsym XF86KbdBrightnessUp   exec --no-startup-id kbdlight up 5                           && pkill -RTMIN+2 i3blocks
+bindsym XF86KbdBrightnessDown exec --no-startup-id kbdlight down 5                         && pkill -RTMIN+2 i3blocks
+bindsym XF86AudioRaiseVolume  exec --no-startup-id amixer -q set Master 5%+                && pkill -RTMIN+3 i3blocks
+bindsym XF86AudioLowerVolume  exec --no-startup-id amixer -q set Master 5%-                && pkill -RTMIN+3 i3blocks
+bindsym XF86AudioMute         exec --no-startup-id amixer -q set Master toggle             && pkill -RTMIN+3 i3blocks
+bindsym XF86AudioStop         exec --no-startup-id mpc stop                                && pkill -RTMIN+4 i3blocks
+bindsym XF86AudioPause        exec --no-startup-id mpc toggle                              && pkill -RTMIN+4 i3blocks
+bindsym XF86AudioPlay         exec --no-startup-id mpc toggle                              && pkill -RTMIN+4 i3blocks
+bindsym XF86AudioPrev         exec --no-startup-id mpc prev                                && pkill -RTMIN+4 i3blocks
+bindsym XF86AudioNext         exec --no-startup-id mpc next                                && pkill -RTMIN+4 i3blocks
 
 # Borders & Gaps
 new_window pixel 2
