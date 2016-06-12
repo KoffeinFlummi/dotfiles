@@ -203,6 +203,10 @@ smart_borders on
 # Applets
 exec --no-startup-id nm-applet
 
+# Startup stuff
+exec --no-startup-id xrdb ~/.Xresources
+exec --no-startup-id kbdlight set 128
+
 # Wallpaper
 exec --no-startup-id feh --bg-fill ~/Pictures/current_wallpaper
 
