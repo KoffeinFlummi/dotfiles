@@ -150,3 +150,7 @@ function ToggleHex()
     let &readonly=l:oldreadonly
     let &modifiable=l:oldmodifiable
 endfunction
+
+" Ag
+let g:ackprg = "ag --vimgrep --smart-case"
+cnoreabbrev ag Ack

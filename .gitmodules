@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/colorizer"]
 	path = .vim/bundle/colorizer
 	url = https://github.com/chrisbra/Colorizer
+[submodule ".vim/bundle/ack"]
+	path = .vim/bundle/ack
+	url = https://github.com/mileszs/ack.vim
