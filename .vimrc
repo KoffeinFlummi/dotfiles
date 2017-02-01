@@ -47,6 +47,7 @@ set scrolloff=2
 set backspace=indent,eol,start
 
 " Layout
+autocmd BufEnter * ColorHighlight
 set number
 set laststatus=2
 set equalalways
@@ -59,16 +60,15 @@ set incsearch
 set smartcase
 
 " NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd BufEnter * ColorHighlight
 let NERDTreeIgnore = ["\.pyc$", "\.o$", "\.class$", "\.rcg$", "\.rcl$"]
+let g:nerdtree_tabs_open_on_console_startup = 1
 
 " Keybinds
 set pastetoggle=<F2>
 nnoremap <CR> :let @/ = ""<CR>:<BACKSPACE><CR>
-nnoremap <F5> :GundoToggle<CR>
-nnoremap <F6> :NERDTreeFind<CR>
+nnoremap <F4> :GundoToggle<CR>
+nnoremap <F5> :NERDTreeTabsToggle<CR>
+nnoremap <F6> :NERDTreeTabsFind<CR>
 nnoremap <F7> :tabp<CR>
 nnoremap <F8> :tabn<CR>
 nnoremap <Left> :cprev<CR>
