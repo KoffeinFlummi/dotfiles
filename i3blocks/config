@@ -32,6 +32,11 @@ border=#689d6a
 [cpu_temp]
 border=#a89984
 
+[spotify]
+command=~/.config/i3blocks/scroll.sh $BLOCK_NAME.sh
+interval=repeat
+border=#1ED760
+
 [ethernet]
 border=#458588
 
