@@ -75,6 +75,10 @@ nnoremap <Right> :cnext<CR>
 nnoremap <Space> za
 vmap <C-C> "+y
 
+if has("nvim")
+    tnoremap <Esc> <C-\><C-n>
+endif
+
 " Airline
 let g:airline_left_sep = ""
 let g:airline_right_sep = ""
