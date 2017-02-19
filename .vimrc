@@ -61,7 +61,6 @@ set smartcase
 
 " NERDTree
 let NERDTreeIgnore = ["\.pyc$", "\.o$", "\.class$", "\.rcg$", "\.rcl$"]
-let g:nerdtree_tabs_open_on_console_startup = 1
 
 " Keybinds
 set pastetoggle=<F2>
@@ -75,6 +74,10 @@ nnoremap <Left> :cprev<CR>
 nnoremap <Right> :cnext<CR>
 nnoremap <Space> za
 vmap <C-C> "+y
+
+if has("nvim")
+    tnoremap <Esc> <C-\><C-n>
+endif
 
 " Airline
 let g:airline_left_sep = ""
