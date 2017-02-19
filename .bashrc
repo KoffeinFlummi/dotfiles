@@ -1,5 +1,6 @@
 export TERM=xterm-256color
 export EDITOR=vim
+export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
 
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
