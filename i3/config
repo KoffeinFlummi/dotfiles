@@ -78,6 +78,9 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+# sticky window
+bindsym $mod+Shift+s sticky toggle
+
 # focus the parent container
 bindsym $mod+a focus parent
 
@@ -189,16 +192,16 @@ bindsym XF86KbdBrightnessDown exec --no-startup-id kbdlight down 5              
 bindsym XF86AudioRaiseVolume  exec --no-startup-id amixer -D "dmixer" -q set Master 5%+    && pkill -RTMIN+3 i3blocks
 bindsym XF86AudioLowerVolume  exec --no-startup-id amixer -D "dmixer" -q set Master 5%-    && pkill -RTMIN+3 i3blocks
 bindsym XF86AudioMute         exec --no-startup-id amixer -D "dmixer" -q set Master toggle && pkill -RTMIN+3 i3blocks
-bindsym XF86AudioStop         exec --no-startup-id mpc stop                                && pkill -RTMIN+4 i3blocks
-bindsym XF86AudioPause        exec --no-startup-id mpc toggle                              && pkill -RTMIN+4 i3blocks
-bindsym XF86AudioPlay         exec --no-startup-id mpc toggle                              && pkill -RTMIN+4 i3blocks
-bindsym XF86AudioPrev         exec --no-startup-id mpc prev                                && pkill -RTMIN+4 i3blocks
-bindsym XF86AudioNext         exec --no-startup-id mpc next                                && pkill -RTMIN+4 i3blocks
+bindsym XF86AudioStop         exec --no-startup-id playerctl stop                          && pkill -RTMIN+4 i3blocks
+bindsym XF86AudioPause        exec --no-startup-id playerctl play-pause                    && pkill -RTMIN+4 i3blocks
+bindsym XF86AudioPlay         exec --no-startup-id playerctl play-pause                    && pkill -RTMIN+4 i3blocks
+bindsym XF86AudioPrev         exec --no-startup-id playerctl previous                      && pkill -RTMIN+4 i3blocks
+bindsym XF86AudioNext         exec --no-startup-id playerctl next                          && pkill -RTMIN+4 i3blocks
 
 # Borders & Gaps
 new_window pixel 2
 gaps inner 10
-gaps outer 5
+gaps outer 4
 smart_gaps on
 smart_borders on
 
@@ -207,7 +210,7 @@ exec --no-startup-id nm-applet
 
 # Startup stuff
 exec --no-startup-id xrdb ~/.Xresources
-exec --no-startup-id kbdlight set 128
+exec --no-startup-id setxkbmap -rules evdev -model pc105 -layout de -variant nodeadkeys
 
 # Wallpaper
 exec --no-startup-id feh --bg-fill ~/Pictures/current_wallpaper
