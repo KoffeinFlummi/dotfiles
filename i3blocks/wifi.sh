@@ -7,8 +7,8 @@ if [ $(hostname) != "alfheim" ]; then
     exit 1
 fi
 
-ssid=$(iwconfig | grep -o ESSID.*)
-address=$(ip addr | grep -o '192\..*\..*\..*/' | head -c -2)
+ssid=$(iwconfig | grep wlp3s0 | grep -o ESSID.*)
+address=$(ip addr show wlp3s0 | grep inet | head -1 | awk '{print $2}' | sed 's/\/.*//')
 
 if [ $ssid == "ESSID:off/any" ]; then
     echo " down"
@@ -17,7 +17,7 @@ if [ $ssid == "ESSID:off/any" ]; then
     exit 0
 fi
 
-ssid=$(iwconfig | grep -o ESSID.* | tail -c +8 | head -c -4)
+ssid=$(iwconfig | grep wlp3s0 | grep -o ESSID.* | tail -c +8 | head -c -4)
 
 echo " $address ($ssid)"
 echo " $ssid"

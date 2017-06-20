@@ -1,6 +1,6 @@
 #!/bin/bash
 
-temp=$(sensors | grep -o +[0-9]* | head -1 | tail -c +2)
+temp=$(sensors | grep Package | grep -o +[0-9]* | head -1 | tail -c +2)
 
 echo " $temp°C"
 

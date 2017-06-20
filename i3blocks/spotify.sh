@@ -2,7 +2,7 @@
 
 playstatus=$(playerctl status)
 
-if [ $playstatus == "Not available" ]; then
+if [[ $? -ne 0 || $playstatus == "Not available" ]]; then
     echo ""
     echo ""
     echo ""
@@ -12,7 +12,7 @@ fi
 track=$(playerctl metadata title)
 artist=$(playerctl metadata artist)
 
-if [ $playstatus == "Paused" ]; then
+if [[ $playstatus == "Paused" ]]; then
     echo " $artist - $track"
     exit 0
 fi
