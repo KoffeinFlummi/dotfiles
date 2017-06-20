@@ -26,3 +26,6 @@ function __prompt_command() {
     ~/.prompt.py --right
     PS1=$(~/.prompt.py --left)
 }
+
+export MYSQL_HISTFILE=/dev/null
+export LESSHISTFILE=/dev/null
