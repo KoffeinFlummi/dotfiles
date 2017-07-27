@@ -25,6 +25,8 @@ set shiftwidth=4
 set softtabstop=4
 set autoindent
 " autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+let g:typescript_indent_disable = 1
+autocmd FileType typescript set sts=2 sw=2
 
 " Code Folding
 set foldmethod=indent
