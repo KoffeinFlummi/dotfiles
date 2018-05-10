@@ -12,6 +12,16 @@ set background=dark
 colorscheme gruvbox
 set cursorline
 
+" Whitespace
+set listchars=tab:>·,trail:~
+set list
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
 " Make background transparent
 highlight Normal ctermbg=None
 highlight Folded ctermbg=None
@@ -24,9 +34,10 @@ set tabstop=8
 set shiftwidth=4
 set softtabstop=4
 set autoindent
-" autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+autocmd FileType make set expandtab ts=4 sts=4 sw=4
 let g:typescript_indent_disable = 1
 autocmd FileType typescript set sts=2 sw=2
+autocmd FileType ruby set sts=2 sw=2
 
 " Code Folding
 set foldmethod=indent
@@ -49,8 +60,8 @@ set scrolloff=2
 set backspace=indent,eol,start
 
 " Layout
-autocmd BufEnter * ColorHighlight
-set number
+autocmd FileType css ColorHighlight
+set number relativenumber
 set laststatus=2
 set equalalways
 let g:gitgutter_max_signs = 3000
@@ -59,7 +70,9 @@ set tabpagemax=100
 " Searching
 set hlsearch
 set incsearch
+set ignorecase
 set smartcase
+set rtp+=/usr/bin/fzf
 
 " NERDTree
 let NERDTreeIgnore = ["\.pyc$", "\.o$", "\.class$", "\.rcg$", "\.rcl$"]
@@ -72,6 +85,8 @@ nnoremap <F5> :NERDTreeTabsToggle<CR>
 nnoremap <F6> :NERDTreeTabsFind<CR>
 nnoremap <F7> :tabp<CR>
 nnoremap <F8> :tabn<CR>
+map <F9> <C-w>gf
+nnoremap <F12> :tabe ~/.vimrc<CR>
 nnoremap <Left> :cprev<CR>
 nnoremap <Right> :cnext<CR>
 nnoremap <Space> za
@@ -132,7 +147,7 @@ function ToggleHex()
         let b:oldbin=&bin
         " set new options
         setlocal binary " make sure it overrides any textwidth, etc.
-        silent :e " this will reload the file without trickeries 
+        silent :e " this will reload the file without trickeries
                             "(DOS line endings will be shown entirely )
         let &ft="xxd"
         " set status
@@ -159,3 +174,5 @@ endfunction
 " Ag
 let g:ackprg = "ag --vimgrep --smart-case"
 cnoreabbrev ag Ack
+
+cmap w!! %!sudo tee > /dev/null %
