@@ -15,25 +15,31 @@ if [ $stat == "Charging," ]; then
     exit 0
 fi
 
+remaining=$(acpi -b | awk '{print $5}' | head -c 5)
+
 if [ $charge -ge 80 ]; then
-    echo " $charge%"
+    echo " $charge% ($remaining)"
     exit 0
 fi
 
 if [ $charge -ge 60 ]; then
-    echo " $charge%"
+    echo " $charge% ($remaining)"
     exit 0
 fi
 
 if [ $charge -ge 40 ]; then
-    echo " $charge%"
+    echo " $charge% ($remaining)"
     exit 0
 fi
 
 if [ $charge -ge 20 ]; then
-    echo " $charge%"
+    echo " $charge% ($remaining)"
     exit 0
 fi
 
-echo " $charge%"
+#if [ $charge -lt 10 ]; then
+#    play --no-show-progress --null --channels 1 synth 0.4 sine 900
+#fi
+
+echo " $charge% ($remaining)"
 exit 33

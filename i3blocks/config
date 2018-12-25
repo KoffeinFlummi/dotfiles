@@ -1,5 +1,5 @@
 command=~/.config/i3blocks/$BLOCK_NAME.sh
-interval=5
+interval=20
 signal=10
 border_top=0
 border_left=0
@@ -7,7 +7,7 @@ border_right=0
 border_bottom=3
 
 [updates]
-interval=120
+interval=600
 border=#cc241d
 
 [mpc]
@@ -15,15 +15,16 @@ signal=4
 border=#458588
 
 [bitcoin]
+interval=600
 border=#98971a
 
 [backlight]
-interval=10
+interval=600
 signal=1
 border=#d79921
 
 [kbdlight]
-interval=10
+interval=600
 signal=2
 border=#458588
 
@@ -52,11 +53,11 @@ border=#458588
 border=#b8bb26
 
 [battery]
-interval=30
+interval=60
 border=#8ec07c
 
 [volume]
-interval=10
+interval=60
 signal=3
 border=#83a598
 

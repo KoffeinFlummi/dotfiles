@@ -106,7 +106,7 @@ nnoremap <F5> :NERDTreeTabsToggle<CR>
 nnoremap <F6> :NERDTreeTabsFind<CR>
 nnoremap <F7> :tabp<CR>
 nnoremap <F8> :tabn<CR>
-map <F9> <C-w>gf
+map <F9> :set path += "."<CR><C-w>gf
 nnoremap <F12> :tabe ~/.vimrc<CR>
 nnoremap <Left> :cprev<CR>
 nnoremap <Right> :cnext<CR>
