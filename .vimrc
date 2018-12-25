@@ -5,9 +5,11 @@ let mapleader=","
 call pathogen#infect()
 call pathogen#helptags()
 filetype plugin on
+runtime ftplugin/man.vim
 
 " Style (color list: http://jonasjacek.github.io/colors/)
 syntax on
+set synmaxcol=500
 set background=dark
 colorscheme gruvbox
 set cursorline
@@ -21,6 +23,8 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+autocmd FileType klist set nolist
+autocmd FileType klist highlight clear ExtraWhitespace
 
 " Make background transparent
 highlight Normal ctermbg=None
@@ -66,6 +70,21 @@ set laststatus=2
 set equalalways
 let g:gitgutter_max_signs = 3000
 set tabpagemax=100
+au VimResized * exe "normal! \<c-w>="
+
+" Splits
+set splitright
+set diffopt+=vertical
+silent! set splitvertical
+if v:errmsg != ''
+  cabbrev split vert split
+  cabbrev hsplit split
+  cabbrev help vert help
+  noremap <C-w>] :vert botright wincmd ]<CR>
+  noremap <C-w><C-]> :vert botright wincmd ]<CR>
+else
+  cabbrev hsplit hor split
+endif
 
 " Searching
 set hlsearch
@@ -73,6 +92,8 @@ set incsearch
 set ignorecase
 set smartcase
 set rtp+=/usr/bin/fzf
+let g:ackprg = "ag --vimgrep --smart-case"
+cnoreabbrev ag Ack
 
 " NERDTree
 let NERDTreeIgnore = ["\.pyc$", "\.o$", "\.class$", "\.rcg$", "\.rcl$"]
@@ -170,9 +191,5 @@ function ToggleHex()
     let &readonly=l:oldreadonly
     let &modifiable=l:oldmodifiable
 endfunction
-
-" Ag
-let g:ackprg = "ag --vimgrep --smart-case"
-cnoreabbrev ag Ack
 
 cmap w!! %!sudo tee > /dev/null %
