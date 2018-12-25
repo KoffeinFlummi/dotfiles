@@ -29,3 +29,7 @@ function __prompt_command() {
 
 export MYSQL_HISTFILE=/dev/null
 export LESSHISTFILE=/dev/null
+
+export ANDROID_HOME=/opt/android-sdk
+PATH=$PATH:$ANDROID_HOME/tools
+PATH=$PATH:$ANDROID_HOME/platform-tools
