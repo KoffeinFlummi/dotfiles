@@ -10,10 +10,6 @@ border_bottom=3
 interval=600
 border=#cc241d
 
-[mpc]
-signal=4
-border=#458588
-
 [bitcoin]
 interval=600
 border=#98971a
@@ -40,7 +36,7 @@ border=#a89984
 [spotify]
 command=~/.config/i3blocks/spotify.sh; [[ -z "${BLOCK_BUTTON}" ]] || ~/.config/i3blocks/spotify-click.sh &
 interval=5
-signal=5
+signal=4
 border=#1ED760
 
 [ethernet]
