@@ -12,11 +12,10 @@ fi
 track=$(playerctl metadata title)
 artist=$(playerctl metadata artist)
 
+str="▶ $artist - $track"
 if [[ $playstatus == "Paused" ]]; then
-    echo " $artist - $track"
-    exit 0
+    str=" $artist - $track"
 fi
 
-echo "▶ $artist - $track"
-#echo " $artist - $track"
+printf '%-40s' "$str"
 exit 0

@@ -37,8 +37,9 @@ border=#689d6a
 border=#a89984
 
 [spotify]
-command=~/.config/i3blocks/scroll.sh $BLOCK_NAME.sh
-interval=repeat
+command=~/.config/i3blocks/spotify.sh; [[ -z "${BLOCK_BUTTON}" ]] || ~/.config/i3blocks/spotify-click.sh &
+interval=5
+signal=5
 border=#1ED760
 
 [ethernet]
