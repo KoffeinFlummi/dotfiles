@@ -1,10 +1,7 @@
 #!/bin/bash
 
+targetres=$(xrandr | tr "," "\n" | sed -n '2p' | tail -c +10 | sed 's/ //g')
+
 scrot -q 1 /tmp/screenshot.jpg
-if [[ $(hostname) == "alfheim" ]]
-then
-    convert /tmp/screenshot.jpg -resize 77x45 -scale 1440x900 /tmp/screenshotblur.png
-else
-    convert /tmp/screenshot.jpg -resize 77x45 -scale 3200x1080 /tmp/screenshotblur.png
-fi
+convert /tmp/screenshot.jpg -resize 77x45 -scale $targetres /tmp/screenshotblur.png
 i3lock -i /tmp/screenshotblur.png
