@@ -1,0 +1,72 @@
+[theme]
+name = "slick"
+[theme.overrides]
+separator = ""
+idle_bg = "#282828"
+idle_fg = "#ebdbb2"
+info_bg = "#282828"
+info_fg = "#ebdbb2"
+good_bg = "#afdf00"
+good_fg = "#005f00"
+
+[icons]
+name = "awesome"
+[icons.overrides]
+time = ""
+music = "  "
+net_wired = " "
+net_vpn = " "
+music_play = " 契"
+music_pause = " "
+music_prev = " 玲"
+music_next = " 怜"
+
+[[block]]
+block = "pacman"
+interval = 10
+
+[[block]]
+block = "music"
+buttons = ["prev", "play", "next"]
+max_width = 28
+
+[[block]]
+block = "cpu"
+interval = 1
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mupi}%"
+format_swap = "{SUp}%"
+
+[[block]]
+block = "temperature"
+collapsed = false
+interval = 10
+format = "{max}°C"
+
+[[block]]
+block = "net"
+device = "enp0s31f6"
+ip = true
+speed_up = false
+speed_down = false
+
+[[block]]
+block = "net"
+device = "tun0"
+ip = false
+speed_up = false
+speed_down = false
+
+[[block]]
+block = "firewall"
+
+[[block]]
+block = "killswitch"
+
+[[block]]
+block = "time"
+interval = 1
+format = "  %Y-%m-%d  %H:%M:%S"
