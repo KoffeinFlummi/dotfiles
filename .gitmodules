@@ -82,3 +82,12 @@
 [submodule ".vim/bundle/nerdtree-syntax-highlight"]
 	path = .vim/bundle/nerdtree-syntax-highlight
 	url = https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
+[submodule ".vim/bundle/openscad"]
+	path = .vim/bundle/openscad
+	url = https://github.com/sirtaj/vim-openscad
+[submodule ".vim/bundle/coc"]
+	path = .vim/bundle/coc
+	url = https://github.com/neoclide/coc.nvim
+[submodule ".vim/bundle/coc-solargraph"]
+	path = .vim/bundle/coc-solargraph
+	url = https://github.com/neoclide/coc-solargraph
